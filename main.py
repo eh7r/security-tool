@@ -7,10 +7,9 @@ from cryptography.fernet import Fernet
 import tkinter as tk
 from tkinter import messagebox, scrolledtext, ttk
 
-PASSWORD = "1234"
+PASSWORD = "1234" # Change password here
 KEY_FILE = "key.key"
 
-# ===== KEY =====
 if not os.path.exists(KEY_FILE):
     key = Fernet.generate_key()
     with open(KEY_FILE, "wb") as f:
@@ -21,7 +20,6 @@ else:
 
 cipher = Fernet(key)
 
-# ===== DB =====
 conn = sqlite3.connect("security.db")
 cur = conn.cursor()
 
@@ -44,7 +42,6 @@ CREATE TABLE IF NOT EXISTS passwords (
 
 conn.commit()
 
-# ===== SYSTEM INFO =====
 def save_data():
     hostname = socket.gethostname()
     ip = socket.gethostbyname(hostname)
@@ -71,7 +68,6 @@ def load_logs():
         except:
             text_area.insert(tk.END, "Error decrypting log\n")
 
-# ===== PASSWORDS =====
 def add_password():
     site = site_entry.get()
     user = user_entry.get()
@@ -110,7 +106,6 @@ def show_passwords():
         except:
             text_area.insert(tk.END, "Error decrypting\n")
 
-# ===== CHECK PASSWORD STRENGTH =====
 def check_strength():
     pw = checker_entry.get()
     score = 0
@@ -135,7 +130,6 @@ def check_strength():
 
     messagebox.showinfo("Result", result)
 
-# ===== LOGIN =====
 def check_password():
     if entry.get() == PASSWORD:
         login.destroy()
@@ -143,7 +137,6 @@ def check_password():
     else:
         messagebox.showerror("Error", "Wrong Password")
 
-# ===== MAIN APP =====
 def open_app():
     global text_area, site_entry, user_entry, pass_entry, master_entry, checker_entry
 
@@ -154,7 +147,6 @@ def open_app():
     notebook = ttk.Notebook(app)
     notebook.pack(fill="both", expand=True)
 
-    # ===== TAB 1: ADD PASSWORD =====
     tab1 = tk.Frame(notebook)
     notebook.add(tab1, text="Add Password")
 
@@ -171,7 +163,6 @@ def open_app():
 
     tk.Button(tab1, text="Save Password", command=add_password).pack(pady=5)
 
-    # ===== TAB 2: VIEW PASSWORDS =====
     tab2 = tk.Frame(notebook)
     notebook.add(tab2, text="View Passwords")
 
@@ -181,14 +172,12 @@ def open_app():
 
     tk.Button(tab2, text="Show Passwords", command=show_passwords).pack(pady=10)
 
-    # ===== TAB 3: SYSTEM INFO =====
     tab3 = tk.Frame(notebook)
     notebook.add(tab3, text="System Info")
 
     tk.Button(tab3, text="Save System Info", command=save_data).pack(pady=5)
     tk.Button(tab3, text="Load Logs", command=load_logs).pack(pady=5)
 
-    # ===== TAB 4: CHECKER =====
     tab4 = tk.Frame(notebook)
     notebook.add(tab4, text="Password Checker")
 
@@ -197,7 +186,6 @@ def open_app():
 
     tk.Button(tab4, text="Check Strength", command=check_strength).pack()
 
-    # ===== OUTPUT =====
     text_area = scrolledtext.ScrolledText(app, width=80, height=15)
     text_area.pack()
 
@@ -205,7 +193,6 @@ def open_app():
 
     app.mainloop()
 
-# ===== LOGIN =====
 login = tk.Tk()
 login.title("Login")
 login.geometry("250x150")
