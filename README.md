@@ -30,6 +30,10 @@ Built with Tkinter and SQLite.
 3. Go to: dist
 4. Run : securitytool
 
+⚙️ Configuration (Important)
+• Default Master Password: 1234
+• To change it: Open main.py and modify the password variable.
+
 ---
 
 ## ⚠️ Important Notes
