@@ -1,5 +1,8 @@
 # 🔐 Security Tool
 
+![screenshot](security-screenshot.jpg)
+
+
 A simple Python-based security tool for managing passwords, system info logs, and password strength checking.  
 Built with Tkinter and SQLite.
 
