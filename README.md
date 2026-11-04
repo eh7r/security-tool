@@ -1,6 +1,4 @@
-<div align="center">
-  <img src="https://i.pinimg.com/736x/bf/a3/7f/bfa37fa5da8c65e527b9112c7666f08a.jpg" alt="Profile Banner" width="100%" />
-</div>
+
 # 🔐 Security Tool
 
 ![screenshot](security-toolpic.png)---
