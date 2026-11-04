@@ -1,5 +1,4 @@
-[![GitHub Repo Card](https://githubcard.com/eh7r/security-tool.git.svg)](https://githubcard.com/eh7r/security-tool.git/card?utm_source=github&utm_medium=readme)
-https://githubcard.com/eh7r/security-tool.git.svg?d=YOUR_DESIGN_ID
+
 # 🔐 Security Tool
 
 ![screenshot](security-toolpic.png)---
